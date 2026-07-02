@@ -74,6 +74,14 @@
       overflow-y: auto;
     }
 
+    .winButtons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
     #board {
       width: min(94vw, 760px);
       height: min(94vw, 620px);
@@ -209,7 +217,10 @@
         
           I believe you can go to Germany and Finland and create even more precious memories. 👍👍👍
         </p>
-      <button onclick="startGame()">Play Again</button>
+      <div class="winButtons">
+        <button onclick="downloadBirthdayImage()">Download Image</button>
+        <button onclick="startGame()">Play Again</button>
+      </div>
     </div>
   </div>
 
@@ -591,6 +602,15 @@
       if (groupIds.length === 1 && groups[groupIds[0]].length === size * size) {
         overlay.style.display = "flex";
       }
+    }
+
+    function downloadBirthdayImage() {
+      const link = document.createElement("a");
+      link.href = imageUrl;
+      link.download = "happy birthday to mai.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   </script>
 </body>
