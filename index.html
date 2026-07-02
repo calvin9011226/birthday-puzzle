@@ -205,29 +205,13 @@
       <div class="sparkle">✨</div>
       <h2>Happy Birthday, Mai 🎂🎂🎂</h2>
 
-        <p id="birthdayMessage" class="birthdayText">
-          Enjoy your special day.<br><br>
-        
-          I’m really happy that you’re planning to explore new countries and improve your language skills.
-          I truly admire you. 🤗🤗🤗<br><br>
-        
-          I think you’ve grown a lot during this period and overcome many difficult challenges.
-          Keep going! 👍👍👍<br><br>
-        
-          Actually, I really like talking to you.
-          Whenever I see your messages, they make me feel more courageous and cheerful. 🤗🤗🤗<br><br>
-        
-          Although I’ve encountered many setbacks with my thesis, your encouragement has given me more courage to face failure and anxiety.
-          Thank you so much for always encouraging me. 🥹🥹🥹<br><br>
-        
-          I believe you can go to Germany and Finland and create even more precious memories. 👍👍👍
-        </p>
-      <div class="winButtons">
-        <button onclick="downloadBirthdayImage()">Download Image</button>
-        <button onclick="startGame()">Play Again</button>
+        <p id="birthdayMessage" class="birthdayText"></p>
+        <div class="winButtons">
+          <button onclick="downloadBirthdayImage()">Download Image</button>
+          <button onclick="startGame()">Play Again</button>
+        </div>
       </div>
     </div>
-  </div>
 
   <script>
     const board = document.getElementById("board");
@@ -254,6 +238,24 @@
 
     const snapThresholdRatio = 0.22;
 
+    const birthdayText = `
+      Enjoy your special day.<br><br>
+    
+      I’m really happy that you’re planning to explore new countries and improve your language skills.
+      I truly admire you. 🤗🤗🤗<br><br>
+    
+      I think you’ve grown a lot during this period and overcome many difficult challenges.
+      Keep going! 👍👍👍<br><br>
+    
+      Actually, I really like talking to you.
+      Whenever I see your messages, they make me feel more courageous and cheerful. 🤗🤗🤗<br><br>
+    
+      Although I’ve encountered many setbacks with my thesis, your encouragement has given me more courage to face failure and anxiety.
+      Thank you so much for always encouraging me. 🥹🥹🥹<br><br>
+    
+      I believe you can go to Germany and Finland and create even more precious memories. 👍👍👍
+    `;
+    
     function startGame() {
       overlay.style.display = "none";
       message.textContent = "";
@@ -606,6 +608,7 @@
     function checkWin() {
       const groupIds = Object.keys(groups);
       if (groupIds.length === 1 && groups[groupIds[0]].length === size * size) {
+        document.getElementById("birthdayMessage").innerHTML = birthdayText;
         overlay.style.display = "flex";
       }
     }
